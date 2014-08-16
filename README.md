@@ -1,4 +1,4 @@
-#Common classes and interfaces for PHP
+#Collection (PHPExtra\Type\Collection)
 
 [![Latest Stable Version](https://poser.pugx.org/phpextra/collection/v/stable.svg)](https://packagist.org/packages/phpextra/collection)
 [![Total Downloads](https://poser.pugx.org/phpextra/collection/downloads.svg)](https://packagist.org/packages/phpextra/collection)
@@ -9,8 +9,6 @@
 [![GitTip](http://img.shields.io/gittip/jkobus.svg)](https://www.gittip.com/jkobus)
 
 ##Usage
-
-###Collection (PHPExtra\Type\Collection)
 
 Collection solve few things by implementing following interfaces: ``\Countable``, ``\ArrayAccess``, ``\Iterator``, and ``\SortableInterface``.
 This gives you an ability to ``count()`` collection, use a ``foreach`` on it, access it like an array ``$a[1]`` and sort its contents ``$a->sort($sorter)``.
