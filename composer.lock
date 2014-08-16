@@ -4,9 +4,162 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c4bb6b9ac06b44d276028fe7a6b70e7a",
+    "hash": "0baea4eff600c6ec25d094e81ffc8615",
     "packages": [
-
+        {
+            "name": "phpextra/enum",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpextra/enum.git",
+                "reference": "c1862b41a4db9a9794bb32c16456f8ea4fdf7ce1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpextra/enum/zipball/c1862b41a4db9a9794bb32c16456f8ea4fdf7ce1",
+                "reference": "c1862b41a4db9a9794bb32c16456f8ea4fdf7ce1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "PHPExtra\\Type\\Enum": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Jacek Kobus",
+                    "email": "kobus.jacek@gmail.com"
+                }
+            ],
+            "description": "Enum type for PHP",
+            "homepage": "https://github.com/phpextra/enum",
+            "keywords": [
+                "enum"
+            ],
+            "time": "2014-08-16 15:44:29"
+        },
+        {
+            "name": "phpextra/sorter",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpextra/sorter.git",
+                "reference": "df7c2565ae87fa316c3c0b8591473444a4201e03"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpextra/sorter/zipball/df7c2565ae87fa316c3c0b8591473444a4201e03",
+                "reference": "df7c2565ae87fa316c3c0b8591473444a4201e03",
+                "shasum": ""
+            },
+            "require": {
+                "ext-intl": ">=1.0.0",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "PHPExtra\\Sorter": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Jacek Kobus",
+                    "email": "kobus.jacek@gmail.com"
+                }
+            ],
+            "description": "Sort arrays and objects by multiple fields with unicode characters",
+            "homepage": "https://github.com/phpextra/sorter",
+            "keywords": [
+                "array",
+                "collections",
+                "objects",
+                "psr-0",
+                "sort",
+                "sorter"
+            ],
+            "time": "2014-08-16 15:46:50"
+        },
+        {
+            "name": "phpextra/unknown",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpextra/unknown.git",
+                "reference": "e8ef5cc8c9ef0ad40a1b63009c45198fd0e2c629"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpextra/unknown/zipball/e8ef5cc8c9ef0ad40a1b63009c45198fd0e2c629",
+                "reference": "e8ef5cc8c9ef0ad40a1b63009c45198fd0e2c629",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "phpextra/collection": "~1.0",
+                "phpextra/enum": "~1.0",
+                "phpextra/sorter": "~1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "PHPExtra\\Type\\Unknown": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Jacek Kobus",
+                    "email": "kobus.jacek@gmail.com"
+                }
+            ],
+            "description": "Unknown type for PHP",
+            "homepage": "https://github.com/phpextra/unknown",
+            "keywords": [
+                "object wrapper",
+                "unknown type"
+            ],
+            "time": "2014-08-16 19:06:06"
+        }
     ],
     "packages-dev": [
         {

@@ -290,9 +290,9 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $unserializedCollection = unserialize($serialized);
 
 
-        $this->assertInstanceOf('PHPExtra\Collection\CollectionInterface', $unserializedCollection);
-        $this->assertInstanceOf('PHPExtra\Collection\CollectionInterface', $unserializedCollection[7]);
-        $this->assertInstanceOf('PHPExtra\Collection\CollectionInterface', $unserializedCollection[8]);
+        $this->assertInstanceOf('PHPExtra\Type\Collection\CollectionInterface', $unserializedCollection);
+        $this->assertInstanceOf('PHPExtra\Type\Collection\CollectionInterface', $unserializedCollection[7]);
+        $this->assertInstanceOf('PHPExtra\Type\Collection\CollectionInterface', $unserializedCollection[8]);
         $this->assertEquals(9, $unserializedCollection->count());
         $this->assertEquals(1, $unserializedCollection[7]->count());
         $this->assertEquals(3, $unserializedCollection[7][0][0]->count());

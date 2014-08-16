@@ -3,6 +3,7 @@
 namespace PHPExtra\Type\Collection;
 
 use Closure;
+use PHPExtra\Type\UnknownType;
 
 /**
  * The LazyCollection class
