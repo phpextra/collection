@@ -22,7 +22,7 @@ $collection = new Collection();
 
 $collection->add('item1');
 $collection->add('item2');
-$collection->add('item3);
+$collection->add('item3');
 ```
 
 Use it:
