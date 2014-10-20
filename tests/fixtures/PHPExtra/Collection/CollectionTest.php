@@ -46,6 +46,18 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(1, count($collection));
     }
 
+    /**
+     * Null element is still an element, and were considering elements not their values
+     */
+    public function testAddNullElementToCollectionIncreasesElementCounter()
+    {
+        $collection = new Collection();
+        $collection->add(null);
+
+        $this->assertFalse($collection->isEmpty());
+        $this->assertEquals(1, $collection->count());
+    }
+
     public function testGetIteratorReturnsIterator()
     {
         $collection = new Collection();
