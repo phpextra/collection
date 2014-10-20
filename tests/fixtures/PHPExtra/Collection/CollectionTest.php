@@ -136,6 +136,20 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('test1', $collection->current());
     }
 
+    public function testIterateIterateOverCollectionCreatedFromAssociativeArray()
+    {
+        $arr = array('xyz' => '123', '1' => '234', 2 => '345');
+        $collection = new Collection($arr);
+
+        $this->assertEquals('123', $collection->current());
+
+        $collection->next();
+        $this->assertEquals('234', $collection->current());
+
+        $collection->next();
+        $this->assertEquals('345', $collection->current());
+    }
+
     public function testIteratorReturnsNullOnEmptyCollection()
     {
         $collection = new Collection();
@@ -374,6 +388,7 @@ class CollectionTest extends PHPUnit_Framework_TestCase
 
         $this->assertNull($collection->first());
     }
+
 
 
 }

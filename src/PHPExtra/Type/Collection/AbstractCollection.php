@@ -32,7 +32,9 @@ abstract class AbstractCollection implements CollectionInterface
      */
     public function __construct(array $entities = array())
     {
-        $this->entities = $entities;
+        foreach ($entities as $entity) {
+            $this->add($entity);
+        }
     }
 
     /**
