@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0baea4eff600c6ec25d094e81ffc8615",
+    "hash": "d3a04ad13decd430280e136918d89231",
     "packages": [
         {
             "name": "phpextra/enum",
@@ -952,9 +952,18 @@
             "time": "2014-10-05 13:53:50"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "1.0.0",
+            "alias_normalized": "1.0.0.0",
+            "version": "9999999-dev",
+            "package": "phpextra/unknown"
+        }
+    ],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "phpextra/unknown": 20
+    },
     "prefer-stable": false,
     "platform": {
         "php": ">=5.3.0"
