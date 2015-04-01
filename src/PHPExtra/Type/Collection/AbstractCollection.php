@@ -18,6 +18,11 @@ abstract class AbstractCollection implements CollectionInterface
     protected $readOnly = false;
 
     /**
+     * @var bool
+     */
+    protected $isIteratorValid = false;
+
+    /**
      * @var \ArrayIterator
      */
     protected $iterator = null;
@@ -75,7 +80,7 @@ abstract class AbstractCollection implements CollectionInterface
             throw new \RuntimeException('Collection is read only');
         }
         $this->entities[] = $entity;
-        $this->regenerateIterator();
+        $this->isIteratorValid = false;
         return $this;
     }
 
@@ -84,8 +89,9 @@ abstract class AbstractCollection implements CollectionInterface
      */
     public function getIterator()
     {
-        if(!$this->iterator){
+        if(!$this->iterator || !$this->isIteratorValid){
             $this->regenerateIterator();
+            $this->isIteratorValid = true;
         }
         return $this->iterator;
     }
@@ -141,7 +147,7 @@ abstract class AbstractCollection implements CollectionInterface
             $this->entities[$offset] = $value;
         }
 
-        $this->regenerateIterator();
+        $this->isIteratorValid = false;
         return $this;
     }
 
@@ -154,7 +160,7 @@ abstract class AbstractCollection implements CollectionInterface
             throw new \RuntimeException('Collection is read only');
         }
         unset($this->entities[$offset]);
-        $this->regenerateIterator();
+        $this->isIteratorValid = false;
     }
 
     /**
@@ -210,7 +216,7 @@ abstract class AbstractCollection implements CollectionInterface
      */
     public function rewind()
     {
-        return $this->getIterator()->rewind();
+        $this->getIterator()->rewind();
     }
 
     /**
