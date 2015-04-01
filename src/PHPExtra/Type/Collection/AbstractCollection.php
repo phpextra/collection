@@ -13,14 +13,14 @@ use PHPExtra\Sorter\SorterInterface;
 abstract class AbstractCollection implements CollectionInterface
 {
     /**
-     * @var int
-     */
-    protected $position = 0;
-
-    /**
      * @var bool
      */
     protected $readOnly = false;
+
+    /**
+     * @var \ArrayIterator
+     */
+    protected $iterator = null;
 
     /**
      * @var array|mixed[]
@@ -75,7 +75,7 @@ abstract class AbstractCollection implements CollectionInterface
             throw new \RuntimeException('Collection is read only');
         }
         $this->entities[] = $entity;
-
+        $this->regenerateIterator();
         return $this;
     }
 
@@ -84,7 +84,10 @@ abstract class AbstractCollection implements CollectionInterface
      */
     public function getIterator()
     {
-        return $this;
+        if(!$this->iterator){
+            $this->regenerateIterator();
+        }
+        return $this->iterator;
     }
 
     /**
@@ -131,8 +134,14 @@ abstract class AbstractCollection implements CollectionInterface
         if ($this->isReadOnly()) {
             throw new \RuntimeException('Collection is read only');
         }
-        $this->entities[$offset] = $value;
 
+        if ( ! isset($offset)) {
+            return $this->add($value);
+        }else{
+            $this->entities[$offset] = $value;
+        }
+
+        $this->regenerateIterator();
         return $this;
     }
 
@@ -145,6 +154,7 @@ abstract class AbstractCollection implements CollectionInterface
             throw new \RuntimeException('Collection is read only');
         }
         unset($this->entities[$offset]);
+        $this->regenerateIterator();
     }
 
     /**
@@ -168,7 +178,7 @@ abstract class AbstractCollection implements CollectionInterface
      */
     public function current()
     {
-        return isset($this->entities[$this->position]) ? $this->entities[$this->position] : null;
+        return $this->getIterator()->current();
     }
 
     /**
@@ -176,7 +186,7 @@ abstract class AbstractCollection implements CollectionInterface
      */
     public function next()
     {
-        ++$this->position;
+        return $this->getIterator()->next();
     }
 
     /**
@@ -184,7 +194,7 @@ abstract class AbstractCollection implements CollectionInterface
      */
     public function key()
     {
-        return $this->position;
+        return $this->getIterator()->key();
     }
 
     /**
@@ -192,7 +202,7 @@ abstract class AbstractCollection implements CollectionInterface
      */
     public function valid()
     {
-        return $this->offsetExists($this->position);
+        return $this->getIterator()->valid();
     }
 
     /**
@@ -200,7 +210,7 @@ abstract class AbstractCollection implements CollectionInterface
      */
     public function rewind()
     {
-        $this->position = 0;
+        return $this->getIterator()->rewind();
     }
 
     /**
@@ -254,5 +264,13 @@ abstract class AbstractCollection implements CollectionInterface
         $this->rewind();
         $this->entities = $sorter->sort($this->entities);
         return $this;
+    }
+
+    /**
+     * Regenerate iterator after any change of the entities array
+     */
+    private function regenerateIterator()
+    {
+        $this->iterator = new \ArrayIterator($this->entities);
     }
 }
