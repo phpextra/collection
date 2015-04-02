@@ -114,10 +114,27 @@ class CollectionTest extends PHPUnit_Framework_TestCase
     public function testUnsetOffsetRemovesGivenOffset()
     {
         $collection = new Collection();
-        $collection->offsetSet(15, new stdClass());
-        $collection->offsetUnset(15);
+        $collection[15] = new \stdClass();
+        unset($collection[15]);
 
         $this->assertFalse($collection->offsetExists(15));
+    }
+
+    public function testUnsetFirstOffsetAndDoAForeachLoop()
+    {
+        $collection = new Collection();
+        $collection[] = 'one';
+        $collection[] = 'two';
+        $collection[] = 'three';
+
+        unset($collection[0]);
+
+        $loops = 0;
+        foreach($collection as $element){
+            $loops++;
+        }
+
+        $this->assertEquals(2, $loops, 'Foreach on non-empty collection is not working');
     }
 
     public function testReadOnlyFlag()

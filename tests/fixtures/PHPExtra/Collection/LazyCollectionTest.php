@@ -122,4 +122,21 @@ class LazyCollectionTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('4', $unserializedCollection[3]);
     }
 
+    public function testUnsetFirstOffsetAndDoAForeachLoop()
+    {
+        $collection = new LazyCollection(function(){
+            return new Collection(array(
+                'one', 'two', 'three'
+            ));
+        });
+
+        unset($collection[0]);
+
+        $loops = 0;
+        foreach($collection as $element){
+            $loops++;
+        }
+
+        $this->assertEquals(2, $loops, 'Foreach on non-empty collection is not working');
+    }
 }
