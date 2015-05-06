@@ -269,6 +269,8 @@ abstract class AbstractCollection implements CollectionInterface
     {
         $this->rewind();
         $this->entities = $sorter->sort($this->entities);
+        $this->regenerateIterator();
+
         return $this;
     }
 

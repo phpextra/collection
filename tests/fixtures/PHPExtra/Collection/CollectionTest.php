@@ -418,6 +418,17 @@ class CollectionTest extends PHPUnit_Framework_TestCase
         $this->assertNull($collection->first());
     }
 
+    public function testOrderIsCorrectWhenIteratingAfterSorting()
+    {
+        $collection = new Collection(array(3,2,1));
+        $collection->sort(new \PHPExtra\Sorter\Sorter());
 
+        $sortedValues = array();
 
+        foreach($collection as $item) {
+            $sortedValues[] = $item;
+        }
+
+        $this->assertEquals(array(1,2,3), $sortedValues);
+    }
 }
